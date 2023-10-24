@@ -21,6 +21,7 @@ def populate_table(filename):
                     book_data.append(line)
     except:
         print("Something went wrong when opening the file")
+        db.rollback()
     
     # Clean up data - convert ID and quantity to integers
     book_data[2][1] = "The Lion, the Witch and the Wardrobe"
@@ -84,10 +85,12 @@ try:
                     ''')
     db.commit()
 except Exception as DatabaseError:
+    db.rollback()
     raise DatabaseError
-
+    
+    
 # Call the function to populate the database book table for further use in your program.
-populate_table("L2T07/book_input.txt") 
+populate_table("book_input.txt") 
 
 while True:
     #present the user with choice menu
