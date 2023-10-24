@@ -45,6 +45,7 @@ def input_number():
 
 
 def confirm_choice(user_confirmation):
+    user_confirmation = user_confirmation.upper()
     if user_confirmation == 'Y':
         return True
     elif user_confirmation == 'N': 
@@ -187,7 +188,7 @@ while True:
         book_id = input('''  Enter ID of book you wish to delete. 
         (If you don't know the ID, first search the database using Option 4):
         ''').strip()
-        user_confirmation = input("\n   Are you sure you want to delete this book? Enter Y or N: ").strip().upper()
+        user_confirmation = input("\n   Are you sure you want to delete this book? Enter Y or N: ").strip()
         choice = confirm_choice(user_confirmation)
         if choice:
             #  check id given by user is in db
