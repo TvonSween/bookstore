@@ -44,6 +44,7 @@ def input_number():
 
 
 def confirm_choice(user_confirmation):
+    user_confirmation = user_confirmation.upper()
     if user_confirmation == 'Y':
         return True
     elif user_confirmation == 'N': 
@@ -87,7 +88,7 @@ except Exception as DatabaseError:
     raise DatabaseError
 
 # Call the function to populate the database book table for further use in your program.
-populate_table("L2T07/book_input.txt") 
+populate_table("book_input.txt") 
 
 while True:
     #present the user with choice menu
@@ -184,7 +185,7 @@ while True:
         book_id = input('''  Enter ID of book you wish to delete. 
         (If you don't know the ID, first search the database using Option 4):
         ''').strip()
-        user_confirmation = input("\n   Are you sure you want to delete this book? Enter Y or N: ").strip().upper()
+        user_confirmation = input("\n   Are you sure you want to delete this book? Enter Y or N: ").strip()
         choice = confirm_choice(user_confirmation)
         if choice:
             #  check id given by user is in db
